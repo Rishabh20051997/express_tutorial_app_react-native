@@ -8,7 +8,7 @@
  * @format
  */
 
-import React, { createContext, useEffect, useState } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -25,9 +25,9 @@ const App = () => {
   return (
     <Provider store={store}>
       <PaperProvider theme={theme}>
-      <NavigationContainer>
-        <MainScreen />
-      </NavigationContainer>
+        <NavigationContainer>
+          <MainScreen />
+        </NavigationContainer>
       </PaperProvider>
     </Provider>
   );

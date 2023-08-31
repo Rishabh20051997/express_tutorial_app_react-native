@@ -8,7 +8,7 @@ export const styles =  StyleSheet.create({
       padding: 10
     },
     loaderContainer: { alignItems: 'center', justifyContent: 'center', position: 'absolute', backgroundColor: colors.toned_down.pdf_container_background ,
-  top: 0, left: 0, right: 0, bottom: 0
+  top: 0, left: 0, right: 0, bottom: 0,zIndex: 99
   },
     component: {
       paddingTop: 24,

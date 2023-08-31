@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { log } from "@services/reactotron/reactotron-log";
-import { callUserRegisterApi, getRegistrationApiSuccessStatus } from "@store/splices/auth-entity";
+import { callUserRegisterApi, getRegistrationLoadingStatus, getRegistrationApiSuccessStatus } from "@store/splices/auth-entity";
 
 const useRegisterScreenViewController = () => {
   const [userName, onUserNameTextChanged]  = useState('')
@@ -10,6 +10,8 @@ const useRegisterScreenViewController = () => {
   const [enableUpdateButton, updateLoginBtnEnableStatus] = useState(false)
 
   const apiSuccessStatus = useSelector(getRegistrationApiSuccessStatus) 
+
+  const isLoading = useSelector(getRegistrationLoadingStatus)
 
   
   const navigation = useNavigation()
@@ -46,6 +48,7 @@ const useRegisterScreenViewController = () => {
 
 
   return {
+    isLoading,
     userName,
     password,
     enableUpdateButton,

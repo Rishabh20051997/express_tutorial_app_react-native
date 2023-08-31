@@ -8,8 +8,8 @@ export enum httpMethods {
 }
 
 export enum BASE_URL {
-  PRODUCTION = 'http://192.168.1.9:3500/',
-  DEV = 'http://192.168.1.9:3500/',
+  PRODUCTION = 'https://express-node-demo.onrender.com',
+  DEV = 'https://express-node-demo.onrender.com',
 }
 
 export enum CACHING_TIME {

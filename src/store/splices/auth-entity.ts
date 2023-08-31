@@ -95,7 +95,7 @@ const slice = createSlice({
     registrationApiCallFail: (authentication, {payload}) => {
       authentication.data.registrationProcess.isRegistrationInProcess = false;
       authentication.data.registrationProcess.isRegistrationSuccess = false;
-      ToastAndroid.show(payload?.message || 'Successful Login', ToastAndroid.SHORT)
+      ToastAndroid.show(payload?.data?.message || 'Something went wrong', ToastAndroid.SHORT)
     },
     /**
      *

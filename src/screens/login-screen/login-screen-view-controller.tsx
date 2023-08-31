@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { log } from "@services/reactotron/reactotron-log";
-import { callAuthenticationApi } from "@store/splices/auth-entity";
+import { callAuthenticationApi, getAuthIsLoading } from "@store/splices/auth-entity";
 
 const useLoginScreenViewController = () => {
 
   const [userName, onUserNameTextChanged]  = useState('')
   const [password, onPasswordChangeText] = useState('')
   const [enableUpdateButton, updateLoginBtnEnableStatus] = useState(false)
+
+  const isLoading = useSelector(getAuthIsLoading)
 
   const navigation = useNavigation()
 
@@ -40,6 +42,7 @@ const useLoginScreenViewController = () => {
 
 
   return {
+    isLoading,
     userName,
     password,
     enableUpdateButton,

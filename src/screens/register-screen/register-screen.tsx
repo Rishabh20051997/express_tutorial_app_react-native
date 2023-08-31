@@ -14,6 +14,7 @@ import useRegisterScreenViewController from './register-screen-view-controller';
 const RegisterScreen = () => {
 
   const {
+    isLoading,
     userName = '',
     password = '',
     enableUpdateButton = false,
@@ -61,8 +62,15 @@ const RegisterScreen = () => {
     );
   };
 
+  const renderLoader = () => {
+    return <View style={styles.loaderContainer}>
+      <ActivityIndicator color={colors.primary.cardinal} size={20} />
+    </View>
+  }
+
   return (
     <View style={styles.rootComponent}>
+      {isLoading ? renderLoader() : null}
       <ScrollView
         style={styles.component}
         contentContainerStyle={styles.scrollViewContainerStyle}

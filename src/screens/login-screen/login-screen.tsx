@@ -16,6 +16,7 @@ const LoginScreen = () => {
   const {
     userName = '',
     password = '',
+    isLoading,
     enableUpdateButton = false,
     onUserNameTextChanged = () => { },
     onLogin = () => { },
@@ -74,8 +75,16 @@ const LoginScreen = () => {
   </UIPressable>
   };
 
+  const renderLoader = () => {
+    return <View style={styles.loaderContainer}>
+      <ActivityIndicator color={colors.primary.cardinal} size={20} />
+    </View>
+  }
+
   return (
     <View style={styles.rootComponent}>
+      {isLoading ? renderLoader() : null}
+      
       <ScrollView
         style={styles.component}
         contentContainerStyle={styles.scrollViewContainerStyle}
